@@ -1,0 +1,139 @@
+// NEW Media Query Mixin
+@mixin break($type,$pix) {
+  @if $type == min {
+    @media  only screen and (min-width: #{$pix}px) { @content; }
+  }
+  @else if $type == max {
+    @media  only screen and (max-width: ($pix - 1px)) { @content; }
+  }
+}
+// @include break(min,600) { }
+// @include break(max,600) { }
+// @include break(min,$w4) { }
+// @include break(max,$w4) { }
+// $wX variables are defined in variables.scss
+
+
+// Opacity 
+@mixin opacity($o) {
+    opacity: $o;
+    $o-ie: $opacity * 100;
+    filter: alpha(opacity=$o-ie); // IE8
+}
+
+// Gradiant
+//https://gist.github.com/nickpiesco/4731166
+@mixin linear-gradient($top, $bottom){
+    background: mix($top, $bottom); // Old browsers 
+    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); // FF3.6+ 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); // Chrome,Safari4+ 
+    background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); // Chrome10+,Safari5.1+ 
+    background: -o-linear-gradient(top,  $top 0%,$bottom 100%); // Opera 11.10+ 
+    background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); // IE10+ 
+    background: linear-gradient(to bottom,  $top 0%,$bottom 100%); // W3C 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$top}', endColorstr='#{$bottom}',GradientType=0 ); // IE6-9 
+}
+//@include linear-gradient(#fff, #000);
+
+
+// Box shadow
+// Horizontal, Vertical, Blur, Spread, Color
+@mixin boxShadow($h,$v,$b,$s,$c,$i:"") {
+  -webkit-box-shadow: $h $v $b $s $c #{$i};
+  -moz-box-shadow:    $h $v $b $s $c #{$i};
+  box-shadow:         $h $v $b $s $c #{$i};
+}
+// @include boxShadow(10px,1em,2rem,1px,#000,inset);
+
+
+// Before and After
+@mixin beforeAfter($w,$h,$t,$l) {
+  content: '';
+  position: absolute;
+  width:$w;
+  height:$h;
+  top:$t;
+  left:$l;
+}
+//@include beforeAfter(10px,100%,0,0);
+
+
+//Transition
+@mixin transition($transition...) {
+    -webkit-transition:$transition;
+    -moz-transition:$transition;
+    -ms-transition:$transition;
+    -o-transition:$transition;
+    transition:$transition;
+}
+//single...
+//@include transition(all 0.2s ease-in-out 0.1s);
+//or multiple...
+//@include transition(bottom 0.2s ease,-in-out, padding 0.3s ease 0.1s);
+
+
+// Transforms 
+// If IE* support is needed - http://www.useragentman.com/IETransformsTranslator/
+// General Transform - Use for multiple transforms
+@mixin transform($transform...) {
+      -webkit-transform: $transform;
+      -moz-transform: $transform;
+      -ms-transform: $transform;
+      -o-transform: $transform;
+      transform: $transform;
+}
+//@include transform(rotate(60deg));
+//single or multiple
+
+// Specific transforms - only one can be applied to an element
+// Skew
+@mixin skew($n,$m) {
+  -webkit-transform: skew(#{$n}deg,#{$m}deg);
+  -ms-transform: skew(#{$n}deg,#{$m}deg);
+  transform: skew(#{$n}deg,#{$m}deg);
+}
+// @include skew(10,10); 
+
+// Rotate
+@mixin rotate($n) {
+  -webkit-transform: rotate(#{$n}deg);
+  -ms-transform: rotate(#{$n}deg);
+  transform: rotate(#{$n}deg);
+}
+// @include rotate(10); 
+
+// Translate
+@mixin translate($n,$m) {
+  -webkit-transform: translate($n,$m);
+  -ms-transform: translate($n,$m);
+  transform: translate($n,$m);
+}
+// @include translate(10px,5%); 
+
+// Scale
+@mixin scale($n,$m) {
+  -webkit-transform: scale($n,$m);
+  -ms-transform: scale($n,$m);
+  transform: scale($n,$m);
+}
+// @include scale(2,2); 
+// End of Transforms
+
+
+// SVG background image with png/jpg fallback
+$extension: 'png' !default;
+$repeat: 'no-repeat' !default;
+$position: '0 0' !default;
+$attachment: 'scroll' !default;
+$color: 'transparent' !default;
+@mixin svg($path-name, $size:false) {
+    background: url(#{$path-name}.svg) $repeat $position $attachment $color;
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg & {
+        background: url(#{$path-name}.#{$extension}) $repeat $position $attachment $color;
+    }
+}
+// To override a default use the $var with the value. Eg below is overriding $extension and $attachment but
+// @include svg('../images/logo', $extension: jpg, $color: (can be a var or hex color));

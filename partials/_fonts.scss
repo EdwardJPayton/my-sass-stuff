@@ -1,0 +1,35 @@
+// Font face
+@font-face{
+	font-family:"univers55";
+	src:url("../fonts/univers/51483fc1-da59-4223-a632-cb12950e03a6.eot?#iefix");
+  src:url("../fonts/univers/51483fc1-da59-4223-a632-cb12950e03a6.eot?#iefix") format("eot"),url("../fonts/univers/2335ee1c-e8df-415c-aba9-387b8dc8f955.woff") format("woff"),url("../fonts/univers/387d36e0-6062-47b6-9b02-3c7b592a6b9b.ttf") format("truetype"),url("../fonts/univers/3f5c7518-9c93-4204-b15b-ce95732d6402.svg#3f5c7518-9c93-4204-b15b-ce95732d6402") format("svg");
+}
+@font-face{
+  font-family:"univers65";
+  src:url("../fonts/univers/1402938c-97a0-4d68-a6ed-969ee0b8114c.eot?#iefix");
+  src:url("../fonts/univers/1402938c-97a0-4d68-a6ed-969ee0b8114c.eot?#iefix") format("eot"),url("../fonts/univers/e9cbe1a0-7477-4278-9e9b-447ee8d39cf3.woff") format("woff"),url("../fonts/univers/a71b570b-3fc1-461a-af8b-1f1971da09f8.ttf") format("truetype"),url("../fonts/univers/42f6fae1-50c8-4734-93cb-dda87707ca4f.svg#42f6fae1-50c8-4734-93cb-dda87707ca4f") format("svg");
+}
+@font-face{
+  font-family:"univers75";
+  src:url("../fonts/univers/755a2fb6-a9d2-45ee-ac5d-642a5971af0e.eot?#iefix");
+  src:url("../fonts/univers/755a2fb6-a9d2-45ee-ac5d-642a5971af0e.eot?#iefix") format("eot"),url("../fonts/univers/acf98bb2-eb76-460a-b1e1-0cacfc0d0ef4.woff") format("woff"),url("../fonts/univers/046c1b67-86b1-48e2-8c6c-74acbafeff46.ttf") format("truetype"),url("../fonts/univers/b47a966e-2f71-464b-bfc4-73d890f0ace1.svg#b47a966e-2f71-464b-bfc4-73d890f0ace1") format("svg");
+}
+@font-face{
+  font-family:"dezen";
+  src:url("../fonts/dezen/Dezen_Pro_Regular.eot?") format("eot"),url("../fonts/dezen/Dezen_Pro_Regular.woff") format("woff"),url("../fonts/dezen/Dezen_Pro_Regular.ttf") format("truetype"),url("../fonts/dezen/Dezen_Pro_Regular.svg#DezenProRegular") format("svg");
+}
+
+// Variables
+$font1: "univers55" ,Helvetica,Arial,sans-serif;
+$font1-bold: "univers65" ,Helvetica,Arial,sans-serif;
+$font1-black: "univers75" ,Helvetica,Arial,sans-serif;
+
+$font2: "dezen" ,Helvetica,Arial,sans-serif;
+
+/*
+@font-face{
+  font-family:"XXX";
+  src:url("fonts/FONT_CODE.eot?#iefix");
+  src:url("fonts/FONT_CODE.eot?#iefix") format("eot"),url("fonts/FONT_CODE.woff") format("woff"),url("fonts/FONT_CODE.ttf") format("truetype"),url("fonts/FONT_CODE.svg#FONT_CODE") format("svg");
+}
+*/

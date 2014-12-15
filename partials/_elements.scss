@@ -1,0 +1,218 @@
+// Text elements
+html,
+body {
+    font-family: $font1, sans-serif;
+    line-height:100%;
+    color:$black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    overflow-x: hidden;
+}
+body {
+    font-size: 62.5%; // resets default font size to 10px, makes choosing em sizes multiples of 10
+    //font-weight: 600;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin:0;
+    padding:0;
+    font-weight: normal;
+}
+h1,h2,h3,h4,h5,h6,p,a,ul,ol,li {
+    font-weight: normal;
+    line-height: 1.4em;
+}
+h1 {
+    font-size:2.2em;
+    line-height:1em;
+    font-family: $font1-bold;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 1.8em;
+}
+h4 {
+	font-size: 1.8em;
+}
+h5 {
+	font-size: 1.6em;
+}
+h6 {
+	font-size: 1.6em;
+}
+p,
+a,
+ul,
+li {
+    line-height: 1.4em;
+}
+p {
+    font-size:1.6em; // Bootstrap making li text huge
+}
+p,pre {
+    margin:0;
+    
+}
+select, option {
+	outline: none !important;
+}
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+a {
+	outline: none !important;
+    text-decoration:none;
+    @include transition(all 0.2s ease-in-out 0.1s);
+}
+a:hover, a:active, a:focus{
+    text-decoration:none;
+    @include transition(all 0.2s ease-in-out);
+}
+blockquote {
+	float:left;
+	width:250px;
+	padding:0;
+	margin: 1em 3em 1em 0;
+	color:$black;
+	&.right {
+		float: right;
+		margin:1em 0 1em 3em;
+	}
+	cite {
+		color: $black;
+	}
+}
+i {
+
+}
+em {
+
+}
+strong {
+
+}
+sup {
+
+}
+sub {
+
+}
+
+
+
+// List elements
+ul,
+ol,
+li {
+    margin:0;
+    padding:0;
+}
+dl {
+
+}
+dt {
+
+}
+dd {
+
+}
+
+
+// Tables
+table {
+
+}
+tbody {
+
+}
+th {
+
+}
+tr {
+
+}
+td {
+    font-size: 1.6em;
+    padding: 8px 4px;
+}
+
+
+// Line
+hr {
+
+}
+
+
+// Formatted
+pre {
+
+}
+code {
+	background: darken($white,10%);
+	display: block;
+	padding:1em;
+}
+
+// Citation
+cite {
+
+}
+form,
+button,
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+input::-moz-focus-inner { 
+  border: 0; 
+}
+// Clearfix - yuk!
+.cf {
+    *zoom: 1;
+    &:before,&:after {
+        content:'';
+        display:table;
+    }
+    &:after {
+        clear:both;
+    }
+}
+// Browse Happy styling
+.browsehappy {
+    padding:10px 0;
+}
+
+// -Flexible Height Sticky Footer
+// http://www.joshrcook.com/a-responsive-sticky-footer/
+html, body {
+  height:100%;
+}
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.footer {
+  display: table-row;
+  height: 1px;
+}
+// End of sticky footer
