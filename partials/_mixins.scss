@@ -21,6 +21,14 @@
     filter: alpha(opacity=$o-ie); // IE8
 }
 
+// REM Font Size
+@mixin font-size($size: 16) {
+  font-size: ($size) + px;
+  font-size: ($size/10) + rem;
+}
+// html { font-size: 62.5%; } // Resets font sizing to Base 10
+// @include font-size(14);
+
 // Gradiant
 //https://gist.github.com/nickpiesco/4731166
 @mixin linear-gradient($top, $bottom){
