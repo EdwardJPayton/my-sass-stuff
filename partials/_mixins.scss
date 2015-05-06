@@ -13,6 +13,51 @@
 // @include break(max,$w4) { }
 // $wX variables are defined in variables.scss
 
+// BEM - standard and chainable syntax
+@mixin e($element, $chain:yes) {
+  @if($chain == "yes") {
+    &._#{$element} {
+      @content;
+    }
+  } @else {
+    &__#{$element} {
+      @content;
+    }
+  }
+}
+@mixin m($modifier, $chain:yes) {
+  @if($chain == "yes") {
+    &.-#{$modifier} {
+      @content;
+    }
+  } @else {
+    &--#{$modifier} {
+      @content;
+    }
+  }
+}
+/*
+Usage:
+.block {
+  background: red;
+  @include e('element') { // yes or blank for chainable
+    color: white;
+  }
+  @include m('modifier', no) { // no for standard
+    background: blue;
+  }
+}
+Becomes:
+.block {
+  background: red;
+}
+.block._element { // chainable
+  color: white;
+}
+.block--modifier { // standard
+  background: blue;
+}
+*/
 
 // Opacity 
 @mixin opacity($o) {
