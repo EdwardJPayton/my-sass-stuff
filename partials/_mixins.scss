@@ -14,6 +14,16 @@
 // $wX variables are defined in variables.scss
 
 // BEM - standard and chainable syntax
+/*
+BEM CSS can be achieved like this:
+.block {
+  &__element { // Standard
+  }
+  &.-modifier { // Chainable
+  }
+}
+This Mixin offers an alternative option to achieve the same thing
+*/
 @mixin e($element, $chain:yes) {
   @if($chain == "yes") {
     &._#{$element} {
