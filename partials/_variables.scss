@@ -1,0 +1,55 @@
+// Colours
+$temp: #F0F; // e.g use as icon placeholder
+
+// Red - Purple
+$red: #F00;
+$purple: #800080;
+$tomato: #ff6347;
+
+// Blue - Green
+$blue: #00F;
+$green: #008000;
+$dodgerBlue: #1E90FF;
+
+// Yellow - Brown
+$yellow: #FF0;
+$peru: #CD853F;
+
+// B+W - light to dark
+$white: #FFF;
+$nearWhite: darken($white,1%);
+$black: #fff;
+$nearBlack: lighten($black,1%);
+
+// Other colours
+$facebook: #576FAA;
+$twitter: #55ACEE;
+
+
+
+// Sizes
+// $gap used for keeping margins / padding / other sizes consistent
+$gap: 40px;
+$halfGap: $gap / 2;
+$qtrGap: $gap /4;
+
+$borderRadius20:20px;
+$borderRadius5: 5px;
+
+// Icon maps
+// e.g...
+$iconMap: (
+  "one","two","three","four"
+);
+// @each $icon in $iconMap {
+  // &.-#{$icon} {
+    // CSS
+  // }
+// }
+
+// Fonts
+// e.g...
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+$openSans: 'Open Sans', sans-serif;
+
+//
