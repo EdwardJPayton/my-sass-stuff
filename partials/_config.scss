@@ -1,0 +1,30 @@
+// Root font size
+$pixelBase: 10px !default; // For Base 10 font sizing
+
+// Box sizing
+$boxSizing: border-box !default; // Border-box or content-box
+
+// Grid
+$columns: 12 !default;
+$maxWidth: 1200px !default;
+// Include gutter in grid (padding-left on .grid-i-x)
+$includeGutter: true !default;
+$gutter:10px !default;
+// Include .push-x
+$includePush:true !default;
+// Include .pull-x
+$includePull:false !default;
+
+// Old IE mode - for rem function, overridden in style-ie.scss
+$ie:false !default;
+
+// Media Query Breakpoints
+$breakpoints: (
+  xsml: 350,
+  sml:  500,
+  mid:  700,
+  lrg:  900
+);
+
+// Media Query Tweak Sizes - E.g for making small changes at intermediate breakpoints
+$tweak800: 800px;
