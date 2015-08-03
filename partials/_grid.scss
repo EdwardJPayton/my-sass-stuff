@@ -1,0 +1,142 @@
+// Inline Block CSS Grid
+
+// - Nested grids need more testing
+// - Supports IE8 and above
+// - The grid works best using the html font-size set to base 10
+// - Inspired by http://codepen.io/davidicus/pen/vxIra
+
+// Grid Container
+.grid-wrap {
+  width:100%;
+  max-width:$maxWidth;
+  overflow:hidden;
+  margin:auto;
+  &.-no-max-width {
+    max-width: none;
+  }
+}
+// Grid Rows
+.grid-row {
+  padding:0 $gutter / 2; // This padding and left centers the grid in the wrapper
+  width:100%;
+  position: relative;
+  max-width: $maxWidth;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0;
+}
+// Nested Grid Rows
+.grid-row .grid-row {
+  left:0;
+  padding:0;
+}
+// Grid items
+%gridI {
+  font-size: $pixelBase;
+  max-width: 100%;
+  @if ($includeGutter) {
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+  }
+}
+@for $i from 1 through $columns {
+  .grid-i-#{$i} {
+    @extend %gridI;
+  }
+}
+.grid-inline {
+  @extend %gridI;
+}
+
+
+@include mq(min,xsml) {
+  // Grid Row
+  .grid-row {
+    //left: -5px;
+  }
+  // Grid Items
+  %grid {
+    display: inline-block;
+    vertical-align: top;
+  }
+  @for $i from 1 through $columns {
+    .grid-i-#{$i} {
+      width: grid($i); // grid function is in functions.scss
+      @extend %grid;
+    }
+  }
+  // Grid Inline - inherits grid settings without a width
+  .grid-inline {
+    @extend %grid;
+  }
+
+  // Nested Grid Items            // ++++++++ IS THIS CORRECT? +++++++
+  @if ($includeGutter) {
+    %gridPaddingFirst {
+      padding-left:0;
+    }
+    %gridPaddingLast {
+      padding-right: 0;
+    }
+    @for $i from 1 through $columns {
+      .grid-row .grid-row .grid-i-#{$i} {
+        &:first-child {
+          @extend %gridPaddingFirst;
+        }
+        @if not ($ie) {
+          &:last-child {
+            @extend %gridPaddingLast;
+          }
+        }
+        @else {
+          .last {
+            @extend %gridPaddingLast;
+          }
+        }
+      }
+    }
+  } // Nested grid items
+
+  %posRel {
+    position: relative;
+  }
+  // Push Items - moves columns left
+  @if ($includePush) {
+    @for $i from 1 through $columns - 1 {
+      @if not ($ie) {
+        // Modern browsers parse fewer rules by using :not selector
+        .push-#{$i}, .push-#{$i} ~ *:not([class*=push]) {
+          @extend %posRel;
+          left: grid($i);
+        }
+      }
+      @else {
+        // Old IE doesn't support :not selector, will parse the push-X rules multiple times
+        .push-#{$i},
+        .push-#{$i} ~ * {
+          @extend %posRel;
+          left: grid($i);
+        }
+      }
+    }
+  }// $includePush
+
+  // Pull Items - moves columns right
+  @if ($includePull) {
+    // .pull-X is equal to the .grid-i-X number to move the column to the start
+    @for $i from 1 through $columns {
+      .pull-#{$i}.pull-#{$i} {
+        @extend %posRel;
+        left: - grid($i);
+      }
+    }
+  } // $includePull
+}
+
+// HTML Structure
+
+// div.grid-wrap          The full container width
+//  div.grid-row          The grid items container
+//     div.grid-i-<num>     The grid item(s)
+//      div.grid-row      Nested grid items container
+//        div.grid-i-<num>  Nested grid item(s)
