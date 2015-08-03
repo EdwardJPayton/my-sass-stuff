@@ -1,0 +1,32 @@
+// On save compiles the main stylesheet
+
+@import "variables";
+@import "config";
+
+@import "functions";
+@import "mixins";
+@import "extends";
+
+@import "normalize";
+@import "default-styles";
+
+@import 'grid';
+//@import "grid-flexbox";
+
+/* Start of my styles */
+
+
+a {
+  color: red;
+  @include tt(all 2s linear 1s);
+  @include bs(0px 4px 5px #666, 2px 6px 10px #999 inset);
+
+  @include kf(abc) { 0%{ left: 0; } 90% { left: 100%; } }
+  @include an('abc 0.5s ease 0.2s infinite normal forwards running');
+}
+
+.grid-abc {
+  padding-right: 10px;
+  @extend %gridI;
+  opacity: 0.5;
+}
