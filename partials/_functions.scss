@@ -32,7 +32,7 @@
 
       @if ($ie) and ($unit == 'rem') {
         // if in ie mode and unit is rem
-        $list: append($list, ($val * $pixelBase) + px);
+        $list: append($list, ($val * $pixelBase));
       }
 
       @else if index($unitTypes, $unit) {
