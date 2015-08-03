@@ -1,0 +1,16 @@
+// On save compiles the main stylesheet
+
+@import "partials/variables";
+@import "partials/config";
+
+@import "partials/functions";
+@import "partials/mixins";
+@import "partials/extends";
+
+@import "partials/normalize";
+@import "partials/default-styles";
+
+@import 'partials/grid';
+//@import "partials/grid-flexbox";
+
+/* Start of my styles */
