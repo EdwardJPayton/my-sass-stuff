@@ -22,7 +22,8 @@
       }
     }
     @else {
-      @media only screen and ( min-width: $size + 'px' ) and ( max-width: ($size2 + -1) + 'px' ) { @content; }
+      $size2: map-get($breakpoints, $size2);
+      @media only screen and ( min-width: $size + 'px' ) and ( max-width: ($size2 - 1) + 'px' ) { @content; }
     }
   }
 }
