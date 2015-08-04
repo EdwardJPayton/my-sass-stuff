@@ -22,7 +22,7 @@
       }
     }
     @else {
-      $list: 'xsml', 'sml', 'mid', 'lrg';
+      $list: to-list($breakpoints, 'keys');
       @if( index($list,$size2) ) {
          $size2: map-get($breakpoints, $size2);
       }
