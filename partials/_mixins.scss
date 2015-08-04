@@ -22,8 +22,7 @@
       }
     }
     @else {
-      $list: map-keys($breakpoints);
-      @if( index($list,$size2) ) {
+      @if map-has-key($breakpoints, $size2) {
          $size2: map-get($breakpoints, $size2);
       }
       @media only screen and ( min-width: $size + 'px' ) and ( max-width: ($size2 - 1) + 'px' ) { @content; }
