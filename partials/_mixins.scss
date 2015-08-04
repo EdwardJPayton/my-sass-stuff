@@ -22,7 +22,7 @@
       }
     }
     @else {
-      $list: to-list($breakpoints, 'keys');
+      $list: map-keys($breakpoints);
       @if( index($list,$size2) ) {
          $size2: map-get($breakpoints, $size2);
       }
