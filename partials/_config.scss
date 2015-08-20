@@ -1,19 +1,19 @@
 // Root font size
-$pixelBase: 10px !default; // For Base 10 font sizing
+$pixelBase: 10px; // For Base 10 font sizing
 
 // Box sizing
-$boxSizing: border-box !default; // Border-box or content-box
+$boxSizing: border-box; // Border-box or content-box
 
 // Grid
-$columns: 12 !default;
-$maxWidth: 1200px !default;
-// Include gutter in grid (padding-left on .grid-i-x)
-$includeGutter: true !default;
-$gutter:10px !default;
+$columns: 12;
+$maxWidth: 1200px;
+$gutter:10px;
+// Include gutter on .grid-i-X (add class name to .grid-row or .grid-i-X)
+$includeItemGutter: true; // Setting to false saves ~1.5kb grid compiled size
 // Include .push-x
-$includePush:true !default;
+$includePush:true;
 // Include .pull-x
-$includePull:false !default;
+$includePull:true;
 
 // Old IE mode - for rem function, overridden in style-ie.scss
 $ie:false !default;
